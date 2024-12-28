@@ -1,5 +1,5 @@
 function getResponseFromAPI() => {
-    return new Promise((resolve, rejected)) => {
+    return new Promise((resolve, reject)) => {
 	setTimeout(() => {
 	    const success = true;
 	    if (success) {
