@@ -1,46 +1,50 @@
 export default class ALXCourse {
-    constructor(name, length, students) {
+  constructor(name, length, students) {
+    if (typeof name !== 'string') {
+      throw TypeError('Name must be a string');
+    }
+    if (typeof length !== 'number') {
+      throw TypeError('Length must be a number');
+    }
+    if (!Array.isArray(students) || students.some((student) => typeof student !== 'string')) {
+      throw TypeError('Students must be an array of strings');
+    }
 
-        if (typeof name !== 'string') {
-            throw TypeError('Name must be a string');
-        }
-        if (typeof length !== 'number') {
-            throw TypeError('Length must be a number');
-        }
-        if (!Array.isArray(students) || students.some((student) => typeof student !== 'string')) {
-            throw TypeError('Students must be an array of strings');
-        }
+    this._name = name;
+    this._length = length;
+    this._students = students;
+  }
 
-        this._name = name;
-        this._length = length;
-        this._students = students;
-}
-get name() {
+  get name() {
     return this._name;
-}
+  }
 
-get length() {
+  get length() {
     return this._length;
-}
-get students() {
+  }
+
+  get students() {
     return this._students;
-}
-set name(newName) {
+  }
+
+  set name(newName) {
     if (typeof newName !== 'string') {
-        throw new TypeError('Name must be a string');
+      throw new TypeError('Name must be a string');
     }
     this._name = newName;
-}
-set length(newLength) {
+  }
+
+  set length(newLength) {
     if (typeof newLength !== 'number') {
-        throw new TypeError('Length mut be a number');
+      throw new TypeError('Length mut be a number');
     }
     this._length = newLength;
-}
-set students(newStudents) {
+  }
+
+  set students(newStudents) {
     if (!Array.isArray(newStudents) || newStudents.some((student) => typeof student !== 'string')) {
-        throw new TypeError('Students must be an array of strings');
+      throw new TypeError('Students must be an array of strings');
     }
-    this._students = newStudents; 
-}
+    this._students = newStudents;
+  }
 }
