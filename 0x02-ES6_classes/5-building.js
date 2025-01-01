@@ -8,7 +8,7 @@ export default class Building {
   }
 
   evacuationWarningMessage() {
-    console.log(this._sqft);
+    // Using 'this' explicitly
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
