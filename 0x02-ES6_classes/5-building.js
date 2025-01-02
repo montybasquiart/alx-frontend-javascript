@@ -1,5 +1,9 @@
 export default class Building {
   constructor(sqft) {
+    if (new.target !== Building
+        && this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
     this._sqft = sqft;
   }
 
@@ -7,8 +11,7 @@ export default class Building {
     return this._sqft;
   }
 
-  evacuationWarningMessage() {
-    console.log(this._sqft); // Using 'this' explicitly
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+  set sqft(value) {
+    this._sqft = value;
   }
 }
