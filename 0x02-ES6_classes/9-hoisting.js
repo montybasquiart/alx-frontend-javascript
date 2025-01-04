@@ -12,7 +12,6 @@ export class ALXClass {
     return this._location;
   }
 }
-
 export class StudentALX {
   constructor(firstName, lastName, alxClass) {
     this._firstName = firstName;
